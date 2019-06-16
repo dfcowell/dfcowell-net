@@ -6,7 +6,7 @@ export const textWidth = `40em`;
 
 export const colors = {
   accent: '#2D6EB3',
-  lightAccent: '#BFDEFF',
+  lightAccent: '#398DE6', 
   neutral: '#FFF1D9',
   lightNeutral: '#FFF9F0',
   darkNeutral: `#FFE8BF`

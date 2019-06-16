@@ -1,74 +1,86 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery } from "gatsby";
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import { CenteredTextContainer } from './TextContainer'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
+import { CenteredTextContainer } from "./TextContainer";
+import PreviewCompatibleImage from "./PreviewCompatibleImage";
+import { StyledLink } from "./StyledLink";
+import { Heading2 } from "./Typography";
+import { grays } from "../theme";
+
+const Post = styled.article`
+  margin-bottom: 3em;
+  
+  :last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const PostMeta = styled.p`
+  color: ${grays.gray40};
+  font-size: 0.8em;
+  margin-top: 0;
+  text-transform: uppercase;
+`;
+
+const PostHeading = styled(Heading2)`
+  margin-bottom: 0.2em;
+`;
 
 class BlogRoll extends React.Component {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
 
     return (
       <CenteredTextContainer>
         {posts &&
           posts.map(({ node: post }) => (
-            <div key={post.id}>
-              <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
-                }`}
-              >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${
-                            post.title
-                          }`,
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span>
-                  </p>
-                </header>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
-              </article>
-            </div>
+            <Post key={post.id}>
+              <header>
+                {post.frontmatter.featuredimage ? (
+                  <div className="featured-thumbnail">
+                    <PreviewCompatibleImage
+                      imageInfo={{
+                        image: post.frontmatter.featuredimage,
+                        alt: `featured image thumbnail for post ${post.title}`
+                      }}
+                    />
+                  </div>
+                ) : null}
+                <PostHeading>
+                  <StyledLink
+                    className="title has-text-primary is-size-4"
+                    to={post.fields.slug}
+                  >
+                    {post.frontmatter.title}
+                  </StyledLink>
+                </PostHeading>
+                <PostMeta>{post.frontmatter.date}</PostMeta>
+              </header>
+              <p>
+                {post.excerpt}
+                <br />
+                <br />
+                <StyledLink className="button" to={post.fields.slug}>
+                  Keep Reading →
+                </StyledLink>
+              </p>
+            </Post>
           ))}
       </CenteredTextContainer>
-    )
+    );
   }
 }
 
 BlogRoll.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
+      edges: PropTypes.array
+    })
+  })
+};
 
 export default () => (
   <StaticQuery
@@ -105,4 +117,4 @@ export default () => (
     `}
     render={(data, count) => <BlogRoll data={data} count={count} />}
   />
-)
+);
