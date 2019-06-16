@@ -1,9 +1,16 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import styled from 'styled-components';
+
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import './all.sass'
 import useSiteMetadata from './SiteMetadata'
+import { colors, fontFamilySans } from '../theme';
+
+const StyledMain = styled.main`
+  background: ${colors.lightNeutral};
+  font-family: ${fontFamilySans};
+`
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
@@ -39,13 +46,13 @@ const TemplateWrapper = ({ children }) => {
         />
         <meta name="theme-color" content="#fff" />
 
-        <meta property="og:type" content="business.business" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
       <Navbar />
-      <div>{children}</div>
+      <StyledMain>{children}</StyledMain>
       <Footer />
     </div>
   )

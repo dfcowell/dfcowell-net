@@ -12,7 +12,13 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
-        <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lato&display=swap" rel="stylesheet" />
+        <style>
+          {`body, html {
+            margin: 0;
+            padding: 0;
+          }`}
+        </style>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

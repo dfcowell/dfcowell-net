@@ -16,9 +16,7 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => (
-  <Placeholder />
-);
-/*  <div>
+  <div>
     <div
       className="full-width-image margin-top-0"
       style={{
@@ -115,7 +113,7 @@ export const IndexPageTemplate = ({
       </div>
     </section>
   </div>
-)*/
+)
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),

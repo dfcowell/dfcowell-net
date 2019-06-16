@@ -5,6 +5,9 @@ module.exports = {
     title: 'Dan Cowell | Front End Engineer',
     description:
       'Personal website, blog and projects of Dan Cowell.',
+    bio: [
+      `I'm a front-end engineer living and working in Vietnam.`
+    ]
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -67,6 +70,7 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
       options: {
