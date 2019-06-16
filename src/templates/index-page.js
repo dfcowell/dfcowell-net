@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import { Placeholder } from '../components/Placeholder';
 
 export const IndexPageTemplate = ({
   image,
@@ -15,7 +16,9 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => (
-  <div>
+  <Placeholder />
+);
+/*  <div>
     <div
       className="full-width-image margin-top-0"
       style={{
@@ -112,7 +115,7 @@ export const IndexPageTemplate = ({
       </div>
     </section>
   </div>
-)
+)*/
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
