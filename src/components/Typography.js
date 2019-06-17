@@ -24,3 +24,26 @@ export const Heading2 = styled.h2`
     margin-top: 0;
   }
 `
+
+export const Heading3 = styled.h3`
+  font-size: 1.5em;
+  line-height: 1.3em;
+  font-family: ${fontFamilySerif};
+  font-weight: 500;
+
+  :first-child {
+    margin-top: 0;
+  }
+`
+
+export const Heading4 = styled.h4`
+  font-size: 1.25em;
+  line-height: 1.3em;
+  margin: 0.5em 0;
+  font-family: ${fontFamilySerif};
+  font-weight: 500;
+
+  :first-child {
+    margin-top: 0;
+  }
+`
