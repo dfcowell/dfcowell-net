@@ -26,6 +26,47 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
 
+  - name: "project"
+    label: "Project"
+    folder: "src/pages/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "project",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Repo Link", name: "repo", widget: string }
+
+  - name: "photo-story"
+    label: "Photo Story"
+    folder: "src/pages/photo-stories"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "photo-story",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "featuredimage", widget: image }
+      - { label: "Introduction", name: "introduction", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Photos", name: "photos", widget: "list", fields: [
+        { label: Photo, name: photo, widget: image },
+        { label: Alt Text, name: alt, widget: text },
+        { label: Description, name: description, widget: markdown },
+      ]}
+
   - name: "pages"
     label: "Pages"
     files:
@@ -126,15 +167,44 @@ collections:
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-      - file: "src/pages/products/index.md"
-        label: "Products Page"
-        name: "products"
+          - {
+            label: "Skills",
+            name: "skills",
+            widget: "list",
+            fields: 
+              [
+                { label: Category, name: category, widget: select, options: [
+                  "Languages",
+                  "CI/CD",
+                  "Infrastructure",
+                  "Programming Languages"
+                ]},
+                { label: Skill, name: skill, widget: string },
+                { label: Score, name: score, widget: string }
+              ]
+          }
+          - {
+            label: "Positions",
+            name: "positions",
+            widget: "list",
+            fields: 
+              [
+                { label: Company, name: company, widget: string },
+                { label: Role, name: role, widget: string },
+                { label: Start Date, name: start, widget: date },
+                { label: End Date, name: end, widget: date },
+                { label: Description, name: description, widget: markdown }
+              ]
+          }
+      - file: "src/pages/projects/index.md"
+        label: "Projects Page"
+        name: "projects"
         fields:
           - {
               label: "Template Key",
               name: "templateKey",
               widget: "hidden",
-              default: "product-page",
+              default: "project-page",
             }
           - { label: Title, name: title, widget: string }
           - { label: Image, name: image, widget: image }
@@ -211,29 +281,3 @@ collections:
                 ],
             }
           - { label: Full_image, name: full_image, widget: image }
-          - {
-              label: Pricing,
-              name: pricing,
-              widget: object,
-              fields:
-                [
-                  { label: Heading, name: heading, widget: string },
-                  { label: Description, name: description, widget: string },
-                  {
-                    label: Plans,
-                    name: plans,
-                    widget: list,
-                    fields:
-                      [
-                        { label: Plan, name: plan, widget: string },
-                        { label: Price, name: price, widget: string },
-                        {
-                          label: Description,
-                          name: description,
-                          widget: string,
-                        },
-                        { label: Items, name: items, widget: list },
-                      ],
-                  },
-                ],
-            }
