@@ -1,6 +1,28 @@
 ---
 templateKey: about-page
 title: About Me
+skills:
+  - category: Languages
+    score: '5'
+    skill: JavaScript
+  - category: Languages
+    score: '5'
+    skill: TypeScript
+  - category: Languages
+    score: '3'
+    skill: Java
+  - category: CI/CD
+    score: '3'
+    skill: Gitlab CI
+  - category: CI/CD
+    score: '5'
+    skill: CircleCI
+  - category: Infrastructure
+    score: '5'
+    skill: Docker
+  - category: Infrastructure
+    score: '4'
+    skill: Kubernetes
 ---
 ### Shade-grown coffee
 Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
