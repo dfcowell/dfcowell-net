@@ -105,9 +105,9 @@ const Navbar = class extends React.Component {
               <StyledNavLink className="navbar-item" to="/about">
                 About
               </StyledNavLink>
-              <StyledNavLink className="navbar-item" to="/projects">
+              { /* <StyledNavLink className="navbar-item" to="/projects">
                 Projects
-              </StyledNavLink>
+    </StyledNavLink> */ }
               <StyledNavLink className="navbar-item" to="/blog">
                 Blog
               </StyledNavLink>

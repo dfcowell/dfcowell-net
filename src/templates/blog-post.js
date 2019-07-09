@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
-import { CenteredTextContainer } from "../components/TextContainer";
+import { TextContainer } from "../components/TextContainer";
 import { PageContainer } from "../components/PageContainer";
 import { Tags } from "../components/Tags";
 import { Heading1 } from "../components/Typography";
@@ -23,16 +23,12 @@ export const BlogPostTemplate = ({
     <section className="section">
       {helmet || ""}
       <PageContainer>
-        <CenteredTextContainer>
-          <Heading1>
-            {title}
-          </Heading1>
+        <TextContainer>
+          <Heading1>{title}</Heading1>
           <p>{description}</p>
           <PostContent content={content} />
-          {tags && tags.length ? (
-            <Tags tags={tags} />
-          ) : null}
-        </CenteredTextContainer>
+          {tags && tags.length ? <Tags tags={tags} /> : null}
+        </TextContainer>
       </PageContainer>
     </section>
   );

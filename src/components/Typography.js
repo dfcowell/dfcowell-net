@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-import { fontFamilySerif } from '../theme';
+import { fontFamilySerif } from "../theme";
 
 export const Heading1 = styled.h1`
   font-size: 2.2em;
@@ -12,7 +12,7 @@ export const Heading1 = styled.h1`
   :first-child {
     margin-top: 0;
   }
-`
+`;
 
 export const Heading2 = styled.h2`
   font-size: 1.8em;
@@ -23,7 +23,7 @@ export const Heading2 = styled.h2`
   :first-child {
     margin-top: 0;
   }
-`
+`;
 
 export const Heading3 = styled.h3`
   font-size: 1.5em;
@@ -34,7 +34,7 @@ export const Heading3 = styled.h3`
   :first-child {
     margin-top: 0;
   }
-`
+`;
 
 export const Heading4 = styled.h4`
   font-size: 1.25em;
@@ -46,4 +46,4 @@ export const Heading4 = styled.h4`
   :first-child {
     margin-top: 0;
   }
-`
+`;

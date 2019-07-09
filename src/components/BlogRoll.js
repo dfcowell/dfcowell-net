@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { CenteredTextContainer } from "./TextContainer";
+import { TextContainer } from "./TextContainer";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
 import { StyledLink } from "./StyledLink";
 import { Heading2 } from "./Typography";
@@ -11,7 +11,7 @@ import { grays } from "../theme";
 
 const Post = styled.article`
   margin-bottom: 3em;
-  
+
   :last-child {
     margin-bottom: 0;
   }
@@ -34,7 +34,7 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark;
 
     return (
-      <CenteredTextContainer>
+      <TextContainer>
         {posts &&
           posts.map(({ node: post }) => (
             <Post key={post.id}>
@@ -69,7 +69,7 @@ class BlogRoll extends React.Component {
               </p>
             </Post>
           ))}
-      </CenteredTextContainer>
+      </TextContainer>
     );
   }
 }

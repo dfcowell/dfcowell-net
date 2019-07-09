@@ -168,16 +168,16 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
           - {
-            label: "Skills",
+            label: "Technical Skills",
             name: "skills",
             widget: "list",
             fields: 
               [
                 { label: Category, name: category, widget: select, options: [
-                  "Languages",
                   "CI/CD",
                   "Infrastructure",
-                  "Programming Languages"
+                  "Languages",
+                  "Software"
                 ]},
                 { label: Skill, name: skill, widget: string },
                 { label: Score, name: score, widget: string }
